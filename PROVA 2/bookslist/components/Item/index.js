@@ -1,7 +1,10 @@
 import React, { Component, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Rating, AirbnbRating } from 'react-native-ratings';
+
 
 export default (props) => {
+
   return (
     <View>
       <FlatList
@@ -13,6 +16,13 @@ export default (props) => {
             <Text style={styles.text}>AUTHOR: {item.author}</Text>
             <Text style={styles.text}>TITLE: {item.title}</Text>
             <Text style={styles.text}>URL: {item.url}</Text>
+            <Rating
+              type='star'
+              count={5}
+              startingValue={0}
+              imageSize={25}
+              fractions={2}
+            />
           </View>}
       />
     </View>

@@ -10,8 +10,8 @@ export default class extends Component {
   getBooks = async () => {
     let returnAPI
     if (!this.state.word) {
-      Alert.alert('Você precisa digitar algo para ser buscado.')
-      return;
+      returnAPI = await Axios.get(`https://hn.algolia.com/api/v1/search?query=`)
+      this.setState({ result: returnAPI.data.hits })
     }
     else {
       returnAPI = await Axios.get(`https://hn.algolia.com/api/v1/search?query=${this.state.word}`)
